@@ -1,0 +1,29 @@
+{
+  "name": "tree-sitter-hurl",
+  "version": "1.0.0",
+  "description": "Hurl grammar for tree-sitter",
+  "main": "bindings/node",
+  "scripts": {
+    "test": "tree-sitter test && script/parse-examples"
+  },
+  "tree-sitter": [
+    {
+      "scope": "source.hurl",
+      "file-types": [
+        "hurl"
+      ]
+    }
+  ],
+  "keywords": [
+    "parser",
+    "hurl"
+  ],
+  "author": "Ethan Carlsson",
+  "license": "MIT",
+  "dependencies": {
+    "nan": "^2.17.0"
+  },
+  "devDependencies": {
+    "tree-sitter-cli": "^0.20.8"
+  }
+}

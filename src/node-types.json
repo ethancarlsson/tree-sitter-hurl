@@ -1,0 +1,117 @@
+[
+  {
+    "type": "http_method",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "request",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "http_method",
+          "named": true
+        },
+        {
+          "type": "url",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "source_file",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "request",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "CONNECT",
+    "named": false
+  },
+  {
+    "type": "DELETE",
+    "named": false
+  },
+  {
+    "type": "GET",
+    "named": false
+  },
+  {
+    "type": "HEAD",
+    "named": false
+  },
+  {
+    "type": "OPTIONS",
+    "named": false
+  },
+  {
+    "type": "PATCH",
+    "named": false
+  },
+  {
+    "type": "POST",
+    "named": false
+  },
+  {
+    "type": "PUT",
+    "named": false
+  },
+  {
+    "type": "TRACE",
+    "named": false
+  },
+  {
+    "type": "connect",
+    "named": false
+  },
+  {
+    "type": "delete",
+    "named": false
+  },
+  {
+    "type": "get",
+    "named": false
+  },
+  {
+    "type": "head",
+    "named": false
+  },
+  {
+    "type": "options",
+    "named": false
+  },
+  {
+    "type": "patch",
+    "named": false
+  },
+  {
+    "type": "post",
+    "named": false
+  },
+  {
+    "type": "put",
+    "named": false
+  },
+  {
+    "type": "trace",
+    "named": false
+  },
+  {
+    "type": "url",
+    "named": true
+  }
+]

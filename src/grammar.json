@@ -1,0 +1,118 @@
+{
+  "name": "hurl",
+  "rules": {
+    "source_file": {
+      "type": "REPEAT",
+      "content": {
+        "type": "SYMBOL",
+        "name": "request"
+      }
+    },
+    "request": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "http_method"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "url"
+        }
+      ]
+    },
+    "http_method": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "GET"
+        },
+        {
+          "type": "STRING",
+          "value": "HEAD"
+        },
+        {
+          "type": "STRING",
+          "value": "POST"
+        },
+        {
+          "type": "STRING",
+          "value": "PUT"
+        },
+        {
+          "type": "STRING",
+          "value": "DELETE"
+        },
+        {
+          "type": "STRING",
+          "value": "CONNECT"
+        },
+        {
+          "type": "STRING",
+          "value": "OPTIONS"
+        },
+        {
+          "type": "STRING",
+          "value": "TRACE"
+        },
+        {
+          "type": "STRING",
+          "value": "PATCH"
+        },
+        {
+          "type": "STRING",
+          "value": "get"
+        },
+        {
+          "type": "STRING",
+          "value": "head"
+        },
+        {
+          "type": "STRING",
+          "value": "post"
+        },
+        {
+          "type": "STRING",
+          "value": "put"
+        },
+        {
+          "type": "STRING",
+          "value": "delete"
+        },
+        {
+          "type": "STRING",
+          "value": "connect"
+        },
+        {
+          "type": "STRING",
+          "value": "options"
+        },
+        {
+          "type": "STRING",
+          "value": "trace"
+        },
+        {
+          "type": "STRING",
+          "value": "patch"
+        }
+      ]
+    },
+    "url": {
+      "type": "PATTERN",
+      "value": "(https?:\\/\\/[^\\s]+)"
+    }
+  },
+  "extras": [
+    {
+      "type": "PATTERN",
+      "value": "\\s"
+    }
+  ],
+  "conflicts": [],
+  "precedences": [],
+  "externals": [],
+  "inline": [],
+  "supertypes": []
+}
+

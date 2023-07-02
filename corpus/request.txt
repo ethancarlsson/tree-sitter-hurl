@@ -1,0 +1,15 @@
+==================
+HTTP method statements
+==================
+
+POST https://example.com
+
+---
+
+(source_file
+	(request
+		(http_method)
+		(url)
+	)
+)
+
