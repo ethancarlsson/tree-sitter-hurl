@@ -2,6 +2,21 @@
 HTTP method statements
 ==================
 
+POST http://example.com
+
+---
+
+(source_file
+	(request
+		(http_method)
+		(url)
+	)
+)
+
+==================
+HTTPS method statements
+==================
+
 POST https://example.com
 
 ---
