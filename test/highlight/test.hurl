@@ -1,9 +1,9 @@
 # test
-GET http://localhost:3000/api/v1/cases
+GET http://localhost:3000/api/v1
 {
     "id": "4568",
     "evaluate": true
 }
 
-HTTP 404
+HTTP 200
 

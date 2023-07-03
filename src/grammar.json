@@ -113,8 +113,51 @@
       "value": "\\{(\\s|.)*\\}"
     },
     "response": {
-      "type": "STRING",
-      "value": "todo..."
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "version_and_status"
+        }
+      ]
+    },
+    "version_and_status": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "http_version"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "status"
+        }
+      ]
+    },
+    "http_version": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "HTTP/1.0"
+        },
+        {
+          "type": "STRING",
+          "value": "HTTP/1.1"
+        },
+        {
+          "type": "STRING",
+          "value": "HTTP/2"
+        },
+        {
+          "type": "STRING",
+          "value": "HTTP"
+        }
+      ]
+    },
+    "status": {
+      "type": "PATTERN",
+      "value": "[1-5]\\d\\d"
     }
   },
   "extras": [

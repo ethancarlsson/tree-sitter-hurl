@@ -8,9 +8,17 @@ const HTTP_METHODS = [
 	'OPTIONS',
 	'TRACE',
 	'PATCH'
-]
+];
 
-const URL_REGEX = /(https?:\/\/[^\s]+)/
+const HTTP_VERSIONS = [
+	'HTTP/1.0',
+	'HTTP/1.1',
+	'HTTP/2',
+	'HTTP',
+];
+
+
+const URL_REGEX = /(https?:\/\/[^\s]+)/;
 
 module.exports = grammar({
 	name: 'hurl',
@@ -28,7 +36,10 @@ module.exports = grammar({
 		input: $ => choice($.json),
 		json: _ => /\{(\s|.)*\}/,
 
-		response: _ => 'todo...',
+		response: $ => seq($.version_and_status),
+		version_and_status: $ => seq($.http_version, $.status),
+		http_version: _ => choice(...HTTP_VERSIONS),
+		status: _ => /[1-5]\d\d/
 	}
 });
 

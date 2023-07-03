@@ -77,3 +77,64 @@ POST https://example.com
 		)
 	)
 )
+
+==================
+POST http 200 response status
+==================
+
+POST http://example.com
+{
+    "id": "4568",
+    "evaluate": true
+}
+
+HTTP 200
+
+---
+
+(source_file
+	(request_response
+		(request
+			(http_method)
+			(url)
+			(input
+				(json)
+			)
+		)
+		(response
+			(version_and_status
+				(http_version)
+				(status)
+			)
+		)
+	)
+)
+
+==================
+POST response with no version and status ERROR
+==================
+
+POST http://example.com
+{
+    "id": "4568",
+    "evaluate": true
+}
+
+[Captures]
+
+---
+
+(source_file
+	(request_response
+		(request
+			(http_method)
+			(url)
+			(input
+				(json)
+			)
+		)
+	)
+	(ERROR
+		(UNEXPECTED '[')
+	)
+)
