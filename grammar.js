@@ -22,9 +22,11 @@ const URL_REGEX = /(https?:\/\/[^\s]+)/;
 
 module.exports = grammar({
 	name: 'hurl',
+	extras: $ => [/\s/, $.comment],
 
 	rules: {
 		source_file: $ => repeat1($.request_response),
+
 
 		request_response: $ => seq($.request, optional($.response)),
 
@@ -39,7 +41,11 @@ module.exports = grammar({
 		response: $ => seq($.version_and_status),
 		version_and_status: $ => seq($.http_version, $.status),
 		http_version: _ => choice(...HTTP_VERSIONS),
-		status: _ => /[1-5]\d\d/
+		status: _ => /[1-5]\d\d/,
+
+		comment: _ => token(seq(
+			'#', /.*/
+		)),
 	}
 });
 

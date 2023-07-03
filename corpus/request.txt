@@ -138,3 +138,27 @@ POST http://example.com
 		(UNEXPECTED '[')
 	)
 )
+
+==================
+With comments
+==================
+
+# comment here
+## and comment here
+POST http://example.com
+
+## and here
+---
+
+(source_file
+	(comment)
+	(comment)
+	(request_response
+		(request
+			(http_method)
+			(url)
+		)
+	)
+	(comment)
+)
+
