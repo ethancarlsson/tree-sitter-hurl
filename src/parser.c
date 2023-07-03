@@ -28,9 +28,9 @@ enum {
   anon_sym_PATCH = 9,
   sym_url = 10,
   sym_json = 11,
-  sym_response_assertions = 12,
+  sym_response = 12,
   sym_source_file = 13,
-  sym_req_res = 14,
+  sym_request_response = 14,
   sym_request = 15,
   sym_http_method = 16,
   sym_input = 17,
@@ -50,9 +50,9 @@ static const char * const ts_symbol_names[] = {
   [anon_sym_PATCH] = "PATCH",
   [sym_url] = "url",
   [sym_json] = "json",
-  [sym_response_assertions] = "response_assertions",
+  [sym_response] = "response",
   [sym_source_file] = "source_file",
-  [sym_req_res] = "req_res",
+  [sym_request_response] = "request_response",
   [sym_request] = "request",
   [sym_http_method] = "http_method",
   [sym_input] = "input",
@@ -72,9 +72,9 @@ static const TSSymbol ts_symbol_map[] = {
   [anon_sym_PATCH] = anon_sym_PATCH,
   [sym_url] = sym_url,
   [sym_json] = sym_json,
-  [sym_response_assertions] = sym_response_assertions,
+  [sym_response] = sym_response,
   [sym_source_file] = sym_source_file,
-  [sym_req_res] = sym_req_res,
+  [sym_request_response] = sym_request_response,
   [sym_request] = sym_request,
   [sym_http_method] = sym_http_method,
   [sym_input] = sym_input,
@@ -130,7 +130,7 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
     .visible = true,
     .named = true,
   },
-  [sym_response_assertions] = {
+  [sym_response] = {
     .visible = true,
     .named = true,
   },
@@ -138,7 +138,7 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
     .visible = true,
     .named = true,
   },
-  [sym_req_res] = {
+  [sym_request_response] = {
     .visible = true,
     .named = true,
   },
@@ -402,7 +402,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       if (lookahead == '}') ADVANCE(60);
       END_STATE();
     case 61:
-      ACCEPT_TOKEN(sym_response_assertions);
+      ACCEPT_TOKEN(sym_response);
       END_STATE();
     default:
       return false;
@@ -438,11 +438,11 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_PATCH] = ACTIONS(1),
     [sym_url] = ACTIONS(1),
     [sym_json] = ACTIONS(1),
-    [sym_response_assertions] = ACTIONS(1),
+    [sym_response] = ACTIONS(1),
   },
   [1] = {
     [sym_source_file] = STATE(10),
-    [sym_req_res] = STATE(2),
+    [sym_request_response] = STATE(2),
     [sym_request] = STATE(5),
     [sym_http_method] = STATE(11),
     [aux_sym_source_file_repeat1] = STATE(2),
@@ -457,7 +457,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_PATCH] = ACTIONS(3),
   },
   [2] = {
-    [sym_req_res] = STATE(3),
+    [sym_request_response] = STATE(3),
     [sym_request] = STATE(5),
     [sym_http_method] = STATE(11),
     [aux_sym_source_file_repeat1] = STATE(3),
@@ -473,7 +473,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_PATCH] = ACTIONS(3),
   },
   [3] = {
-    [sym_req_res] = STATE(3),
+    [sym_request_response] = STATE(3),
     [sym_request] = STATE(5),
     [sym_http_method] = STATE(11),
     [aux_sym_source_file_repeat1] = STATE(3),
@@ -501,7 +501,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_TRACE] = ACTIONS(12),
     [anon_sym_PATCH] = ACTIONS(12),
     [sym_json] = ACTIONS(14),
-    [sym_response_assertions] = ACTIONS(12),
+    [sym_response] = ACTIONS(12),
   },
   [5] = {
     [ts_builtin_sym_end] = ACTIONS(16),
@@ -514,7 +514,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_OPTIONS] = ACTIONS(16),
     [anon_sym_TRACE] = ACTIONS(16),
     [anon_sym_PATCH] = ACTIONS(16),
-    [sym_response_assertions] = ACTIONS(18),
+    [sym_response] = ACTIONS(18),
   },
   [6] = {
     [ts_builtin_sym_end] = ACTIONS(20),
@@ -527,7 +527,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_OPTIONS] = ACTIONS(20),
     [anon_sym_TRACE] = ACTIONS(20),
     [anon_sym_PATCH] = ACTIONS(20),
-    [sym_response_assertions] = ACTIONS(20),
+    [sym_response] = ACTIONS(20),
   },
   [7] = {
     [ts_builtin_sym_end] = ACTIONS(22),
@@ -540,7 +540,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_OPTIONS] = ACTIONS(22),
     [anon_sym_TRACE] = ACTIONS(22),
     [anon_sym_PATCH] = ACTIONS(22),
-    [sym_response_assertions] = ACTIONS(22),
+    [sym_response] = ACTIONS(22),
   },
   [8] = {
     [ts_builtin_sym_end] = ACTIONS(24),
@@ -583,11 +583,11 @@ static const TSParseActionEntry ts_parse_actions[] = {
   [9] = {.entry = {.count = 2, .reusable = true}}, REDUCE(aux_sym_source_file_repeat1, 2), SHIFT_REPEAT(9),
   [12] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_request, 2),
   [14] = {.entry = {.count = 1, .reusable = true}}, SHIFT(6),
-  [16] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_req_res, 1),
+  [16] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_request_response, 1),
   [18] = {.entry = {.count = 1, .reusable = true}}, SHIFT(8),
   [20] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_input, 1),
   [22] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_request, 3),
-  [24] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_req_res, 2),
+  [24] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_request_response, 2),
   [26] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_http_method, 1),
   [28] = {.entry = {.count = 1, .reusable = true}},  ACCEPT_INPUT(),
   [30] = {.entry = {.count = 1, .reusable = true}}, SHIFT(4),

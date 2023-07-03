@@ -16,9 +16,9 @@ module.exports = grammar({
 	name: 'hurl',
 
 	rules: {
-		source_file: $ => repeat1($.req_res),
+		source_file: $ => repeat1($.request_response),
 
-		req_res: $ => seq($.request, optional($.response_assertions)),
+		request_response: $ => seq($.request, optional($.response)),
 
 		request: $ => seq($.http_method, $.url, optional($.input)),
 
@@ -28,7 +28,7 @@ module.exports = grammar({
 		input: $ => choice($.json),
 		json: _ => /\{(\s|.)*\}/,
 
-		response_assertions: _ => 'todo...',
+		response: _ => 'todo...',
 	}
 });
 

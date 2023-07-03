@@ -5,10 +5,10 @@
       "type": "REPEAT1",
       "content": {
         "type": "SYMBOL",
-        "name": "req_res"
+        "name": "request_response"
       }
     },
-    "req_res": {
+    "request_response": {
       "type": "SEQ",
       "members": [
         {
@@ -20,7 +20,7 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "response_assertions"
+              "name": "response"
             },
             {
               "type": "BLANK"
@@ -112,7 +112,7 @@
       "type": "PATTERN",
       "value": "\\{(\\s|.)*\\}"
     },
-    "response_assertions": {
+    "response": {
       "type": "STRING",
       "value": "todo..."
     }

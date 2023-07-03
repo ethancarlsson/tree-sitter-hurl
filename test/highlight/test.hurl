@@ -5,5 +5,5 @@ GET http://localhost:3000/api/v1/cases
     "evaluate": true
 }
 
-HTTP 200
+HTTP 404
 

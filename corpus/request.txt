@@ -7,7 +7,7 @@ POST http://example.com
 ---
 
 (source_file
-	(req_res
+	(request_response
 		(request
 			(http_method)
 			(url)
@@ -24,7 +24,7 @@ POST https://example.com
 ---
 
 (source_file
-	(req_res
+	(request_response
 		(request
 			(http_method)
 			(url)
@@ -43,7 +43,7 @@ POST https://example.com
 ---
 
 (source_file
-	(req_res
+	(request_response
 		(request
 			(http_method)
 			(url)
@@ -67,7 +67,7 @@ POST https://example.com
 ---
 
 (source_file
-	(req_res
+	(request_response
 		(request
 			(http_method)
 			(url)

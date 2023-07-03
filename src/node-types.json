@@ -20,25 +20,6 @@
     }
   },
   {
-    "type": "req_res",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "request",
-          "named": true
-        },
-        {
-          "type": "response_assertions",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "request",
     "named": true,
     "fields": {},
@@ -62,6 +43,25 @@
     }
   },
   {
+    "type": "request_response",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "request",
+          "named": true
+        },
+        {
+          "type": "response",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "source_file",
     "named": true,
     "fields": {},
@@ -70,7 +70,7 @@
       "required": true,
       "types": [
         {
-          "type": "req_res",
+          "type": "request_response",
           "named": true
         }
       ]
@@ -117,7 +117,7 @@
     "named": true
   },
   {
-    "type": "response_assertions",
+    "type": "response",
     "named": true
   },
   {
