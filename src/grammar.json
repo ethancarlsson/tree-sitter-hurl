@@ -2,7 +2,7 @@
   "name": "hurl",
   "rules": {
     "source_file": {
-      "type": "REPEAT",
+      "type": "REPEAT1",
       "content": {
         "type": "SYMBOL",
         "name": "request"
@@ -18,6 +18,18 @@
         {
           "type": "SYMBOL",
           "name": "url"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "input"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         }
       ]
     },
@@ -101,6 +113,19 @@
     "url": {
       "type": "PATTERN",
       "value": "(https?:\\/\\/[^\\s]+)"
+    },
+    "input": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "json"
+        }
+      ]
+    },
+    "json": {
+      "type": "PATTERN",
+      "value": "\\{(\\s|.)*\\}"
     }
   },
   "extras": [

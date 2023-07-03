@@ -28,3 +28,44 @@ POST https://example.com
 	)
 )
 
+==================
+POST with empty JSON input
+==================
+
+POST https://example.com
+{}
+
+
+---
+
+(source_file
+	(request
+		(http_method)
+		(url)
+		(input
+			(json)
+		)
+	)
+)
+
+==================
+POST with full JSON input
+==================
+
+POST https://example.com
+{
+    "id": "4568",
+    "evaluate": true
+}
+
+---
+
+(source_file
+	(request
+		(http_method)
+		(url)
+		(input
+			(json)
+		)
+	)
+)

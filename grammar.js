@@ -16,11 +16,15 @@ module.exports = grammar({
 	name: 'hurl',
 
 	rules: {
-		source_file: $ => repeat($.request),
-		request: $ => seq($.http_method, $.url),
+		source_file: $ => repeat1($.request),
 
-		http_method: $ => choice(...HTTP_METHODS, ...HTTP_METHODS.map((m) => m.toLowerCase())),
-		url: $ => URL_REGEX
+		request: $ => seq($.http_method, $.url, optional($.input)),
+
+		http_method: $ => choice(...HTTP_METHODS),
+		url: $ => URL_REGEX,
+
+		input: $ => choice($.json),
+		json: $ => /\{(\s|.)*\}/
 	}
 });
 
