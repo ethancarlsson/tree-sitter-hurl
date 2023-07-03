@@ -5,8 +5,29 @@
       "type": "REPEAT1",
       "content": {
         "type": "SYMBOL",
-        "name": "request"
+        "name": "req_res"
       }
+    },
+    "req_res": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "request"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "response_assertions"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
     },
     "request": {
       "type": "SEQ",
@@ -71,42 +92,6 @@
         {
           "type": "STRING",
           "value": "PATCH"
-        },
-        {
-          "type": "STRING",
-          "value": "get"
-        },
-        {
-          "type": "STRING",
-          "value": "head"
-        },
-        {
-          "type": "STRING",
-          "value": "post"
-        },
-        {
-          "type": "STRING",
-          "value": "put"
-        },
-        {
-          "type": "STRING",
-          "value": "delete"
-        },
-        {
-          "type": "STRING",
-          "value": "connect"
-        },
-        {
-          "type": "STRING",
-          "value": "options"
-        },
-        {
-          "type": "STRING",
-          "value": "trace"
-        },
-        {
-          "type": "STRING",
-          "value": "patch"
         }
       ]
     },
@@ -126,6 +111,10 @@
     "json": {
       "type": "PATTERN",
       "value": "\\{(\\s|.)*\\}"
+    },
+    "response_assertions": {
+      "type": "STRING",
+      "value": "todo..."
     }
   },
   "extras": [

@@ -20,6 +20,25 @@
     }
   },
   {
+    "type": "req_res",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "request",
+          "named": true
+        },
+        {
+          "type": "response_assertions",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "request",
     "named": true,
     "fields": {},
@@ -51,7 +70,7 @@
       "required": true,
       "types": [
         {
-          "type": "request",
+          "type": "req_res",
           "named": true
         }
       ]
@@ -94,44 +113,12 @@
     "named": false
   },
   {
-    "type": "connect",
-    "named": false
-  },
-  {
-    "type": "delete",
-    "named": false
-  },
-  {
-    "type": "get",
-    "named": false
-  },
-  {
-    "type": "head",
-    "named": false
-  },
-  {
     "type": "json",
     "named": true
   },
   {
-    "type": "options",
-    "named": false
-  },
-  {
-    "type": "patch",
-    "named": false
-  },
-  {
-    "type": "post",
-    "named": false
-  },
-  {
-    "type": "put",
-    "named": false
-  },
-  {
-    "type": "trace",
-    "named": false
+    "type": "response_assertions",
+    "named": true
   },
   {
     "type": "url",
