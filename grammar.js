@@ -17,6 +17,14 @@ const HTTP_VERSIONS = [
 	'HTTP',
 ];
 
+const REQUEST_PARAM_KEYWORDS = [
+	'[QueryStringParams]',
+	'[FormParams]',
+	'[BasicAuth]',
+	'[Cookies]',
+	'[MultipartFormData]',
+];
+
 
 const URL_REGEX = /(https?:\/\/[^\s]+)/;
 
@@ -33,20 +41,20 @@ module.exports = grammar({
 
 		request_response: $ => seq($.request, optional($.response)),
 
-		request: $ => seq($.http_method, $.url, repeat($.header), optional($.input)),
+		request: $ => seq($.http_method, $.url, repeat(choice($.pair, $.request_param_keyword)), optional($.input)),
 
 		http_method: _ => choice(...HTTP_METHODS),
 		url: _ => URL_REGEX,
 
-		header: $ => seq(
-			$.header_key,
+		pair: $ => seq(
+			$.key,
 			':',
-			$.header_value,
+			$.value,
 		),
 
-		header_key: _ => HEADER_KEY_REGEX,
-
-		header_value: _ => HEADER_VALUE_REGEX,
+		request_param_keyword: _ => choice(...REQUEST_PARAM_KEYWORDS),
+		key: _ => HEADER_KEY_REGEX,
+		value: _ => HEADER_VALUE_REGEX,
 
 
 		input: $ => choice($.json),

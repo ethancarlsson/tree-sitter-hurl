@@ -43,8 +43,17 @@
         {
           "type": "REPEAT",
           "content": {
-            "type": "SYMBOL",
-            "name": "header"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "pair"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "request_param_keyword"
+              }
+            ]
           }
         },
         {
@@ -106,12 +115,12 @@
       "type": "PATTERN",
       "value": "(https?:\\/\\/[^\\s]+)"
     },
-    "header": {
+    "pair": {
       "type": "SEQ",
       "members": [
         {
           "type": "SYMBOL",
-          "name": "header_key"
+          "name": "key"
         },
         {
           "type": "STRING",
@@ -119,15 +128,40 @@
         },
         {
           "type": "SYMBOL",
-          "name": "header_value"
+          "name": "value"
         }
       ]
     },
-    "header_key": {
+    "request_param_keyword": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "[QueryStringParams]"
+        },
+        {
+          "type": "STRING",
+          "value": "[FormParams]"
+        },
+        {
+          "type": "STRING",
+          "value": "[BasicAuth]"
+        },
+        {
+          "type": "STRING",
+          "value": "[Cookies]"
+        },
+        {
+          "type": "STRING",
+          "value": "[MultipartFormData]"
+        }
+      ]
+    },
+    "key": {
       "type": "PATTERN",
       "value": "(\\w|\\d|-|_)+"
     },
-    "header_value": {
+    "value": {
       "type": "PATTERN",
       "value": "(\\w|\\d|-|_|\\\\|\\.|~|\\{|\\}|<|>|`|\\^|%|!|#|\\$|&|'|\"|\\(|\\)|\\*|\\+|,|\\/|:|;|=|\\?|@|\\[|\\]| |\\|)+"
     },
@@ -206,14 +240,6 @@
           }
         ]
       }
-    },
-    "_colon": {
-      "type": "STRING",
-      "value": ":"
-    },
-    "_new_line": {
-      "type": "PATTERN",
-      "value": "(\\n|\\r)"
     }
   },
   "extras": [

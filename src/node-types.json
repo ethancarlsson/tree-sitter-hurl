@@ -1,24 +1,5 @@
 [
   {
-    "type": "header",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "header_key",
-          "named": true
-        },
-        {
-          "type": "header_value",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "http_method",
     "named": true,
     "fields": {}
@@ -44,7 +25,7 @@
     }
   },
   {
-    "type": "request",
+    "type": "pair",
     "named": true,
     "fields": {},
     "children": {
@@ -52,9 +33,24 @@
       "required": true,
       "types": [
         {
-          "type": "header",
+          "type": "key",
           "named": true
         },
+        {
+          "type": "value",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "request",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
         {
           "type": "http_method",
           "named": true
@@ -64,11 +60,24 @@
           "named": true
         },
         {
+          "type": "pair",
+          "named": true
+        },
+        {
+          "type": "request_param_keyword",
+          "named": true
+        },
+        {
           "type": "url",
           "named": true
         }
       ]
     }
+  },
+  {
+    "type": "request_param_keyword",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "request_response",
@@ -195,19 +204,35 @@
     "named": false
   },
   {
+    "type": "[BasicAuth]",
+    "named": false
+  },
+  {
+    "type": "[Cookies]",
+    "named": false
+  },
+  {
+    "type": "[FormParams]",
+    "named": false
+  },
+  {
+    "type": "[MultipartFormData]",
+    "named": false
+  },
+  {
+    "type": "[QueryStringParams]",
+    "named": false
+  },
+  {
     "type": "comment",
     "named": true
   },
   {
-    "type": "header_key",
-    "named": true
-  },
-  {
-    "type": "header_value",
-    "named": true
-  },
-  {
     "type": "json",
+    "named": true
+  },
+  {
+    "type": "key",
     "named": true
   },
   {
@@ -216,6 +241,10 @@
   },
   {
     "type": "url",
+    "named": true
+  },
+  {
+    "type": "value",
     "named": true
   }
 ]

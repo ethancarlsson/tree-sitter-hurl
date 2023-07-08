@@ -135,8 +135,8 @@ POST http://example.com
 		)
 	)
 	(ERROR
-		(UNEXPECTED '[')
-		(header_key)
+		(UNEXPECTED 'a')
+		(key)
 		(UNEXPECTED ']')
 	)
 )
@@ -178,9 +178,9 @@ User-Agent: test
 		(request
 			(http_method)
 			(url)
-			(header
-				(header_key)
-				(header_value)
+			(pair
+				(key)
+				(value)
 			)
 		)
 	)
@@ -203,9 +203,67 @@ User-Agent_2: test-22-(with-symbols)\and|_json_aftertest_ :;.,\/"'?!(){}[]@<>=-+
 		(request
 			(http_method)
 			(url)
-			(header
-				(header_key)
-				(header_value)
+			(pair
+				(key)
+				(value)
+			)
+			(input
+				(json)
+			)
+		)
+	)
+)
+
+==================
+With query params, form params, multipart form params, cookies and auth
+==================
+
+GET http://example.com
+[QueryStringParams]
+order: newest
+[BasicAuth]
+bob: secret
+[Cookies]
+theme: light
+[MultipartFormData]
+field1: value1
+[FormParams]
+default: false
+{
+	"test": true
+}
+
+---
+
+(source_file
+	(request_response
+		(request
+			(http_method)
+			(url)
+			(request_param_keyword)
+			(pair
+				(key)
+				(value)
+			)
+			(request_param_keyword)
+			(pair
+				(key)
+				(value)
+			)
+			(request_param_keyword)
+			(pair
+				(key)
+				(value)
+			)
+			(request_param_keyword)
+			(pair
+				(key)
+				(value)
+			)
+			(request_param_keyword)
+			(pair
+				(key)
+				(value)
 			)
 			(input
 				(json)

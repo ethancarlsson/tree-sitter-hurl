@@ -1,10 +1,11 @@
 (http_method) @keyword
+(request_param_keyword) @keyword
 (url) @name
 (status) @number
 (comment) @comment
 
-(header
-  (header_key) @string.special.key
-  (header_value) @string
+(pair
+  (key) @string.special.key
+  (value) @string
 )
 
