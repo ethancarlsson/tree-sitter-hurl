@@ -20,6 +20,9 @@ const HTTP_VERSIONS = [
 
 const URL_REGEX = /(https?:\/\/[^\s]+)/;
 
+const HEADER_VALUE_REGEX = /(\w|\d|-|_|\\|\.|~|\{|\}|<|>|`|\^|%|!|#|\$|&|'|"|\(|\)|\*|\+|,|\/|:|;|=|\?|@|\[|\]| |\|)+/
+const HEADER_KEY_REGEX = /(\w|\d|-|_)+/
+
 module.exports = grammar({
 	name: 'hurl',
 	extras: $ => [/\s/, $.comment],
@@ -30,10 +33,21 @@ module.exports = grammar({
 
 		request_response: $ => seq($.request, optional($.response)),
 
-		request: $ => seq($.http_method, $.url, optional($.input)),
+		request: $ => seq($.http_method, $.url, repeat($.header), optional($.input)),
 
 		http_method: _ => choice(...HTTP_METHODS),
 		url: _ => URL_REGEX,
+
+		header: $ => seq(
+			$.header_key,
+			':',
+			$.header_value,
+		),
+
+		header_key: _ => HEADER_KEY_REGEX,
+
+		header_value: _ => HEADER_VALUE_REGEX,
+
 
 		input: $ => choice($.json),
 		json: _ => /\{(\s|.)*\}/,

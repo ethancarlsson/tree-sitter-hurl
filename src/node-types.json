@@ -1,5 +1,24 @@
 [
   {
+    "type": "header",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "header_key",
+          "named": true
+        },
+        {
+          "type": "header_value",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "http_method",
     "named": true,
     "fields": {}
@@ -32,6 +51,10 @@
       "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "header",
+          "named": true
+        },
         {
           "type": "http_method",
           "named": true
@@ -116,6 +139,10 @@
     }
   },
   {
+    "type": ":",
+    "named": false
+  },
+  {
     "type": "CONNECT",
     "named": false
   },
@@ -169,6 +196,14 @@
   },
   {
     "type": "comment",
+    "named": true
+  },
+  {
+    "type": "header_key",
+    "named": true
+  },
+  {
+    "type": "header_value",
     "named": true
   },
   {

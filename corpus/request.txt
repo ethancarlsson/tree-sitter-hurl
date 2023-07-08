@@ -136,6 +136,8 @@ POST http://example.com
 	)
 	(ERROR
 		(UNEXPECTED '[')
+		(header_key)
+		(UNEXPECTED ']')
 	)
 )
 
@@ -160,5 +162,55 @@ POST http://example.com
 		)
 	)
 	(comment)
+)
+
+==================
+With header values
+==================
+
+POST http://example.com
+User-Agent: test
+
+---
+
+(source_file
+	(request_response
+		(request
+			(http_method)
+			(url)
+			(header
+				(header_key)
+				(header_value)
+			)
+		)
+	)
+)
+
+==================
+With header values (complex)
+==================
+
+POST http://example.com
+User-Agent_2: test-22-(with-symbols)\and|_json_aftertest_ :;.,\/"'?!(){}[]@<>=-+*#$&`|~^%
+{
+	"test": true
+}
+
+---
+
+(source_file
+	(request_response
+		(request
+			(http_method)
+			(url)
+			(header
+				(header_key)
+				(header_value)
+			)
+			(input
+				(json)
+			)
+		)
+	)
 )
 
