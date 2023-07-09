@@ -24,9 +24,23 @@
         {
           "type": "multiline_string",
           "named": true
+        },
+        {
+          "type": "xml",
+          "named": true
         }
       ]
     }
+  },
+  {
+    "type": "json",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "multiline_string",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "pair",
@@ -167,6 +181,11 @@
     }
   },
   {
+    "type": "xml",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": ":",
     "named": false
   },
@@ -247,19 +266,19 @@
     "named": false
   },
   {
+    "type": "```json",
+    "named": false
+  },
+  {
+    "type": "```xml",
+    "named": false
+  },
+  {
     "type": "comment",
     "named": true
   },
   {
-    "type": "json",
-    "named": true
-  },
-  {
     "type": "key",
-    "named": true
-  },
-  {
-    "type": "multiline_string",
     "named": true
   },
   {

@@ -187,7 +187,15 @@
         },
         {
           "type": "SYMBOL",
+          "name": "_json_language_hint"
+        },
+        {
+          "type": "SYMBOL",
           "name": "_multiline_string_body"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_xml_language_hint"
         }
       ]
     },
@@ -208,6 +216,50 @@
         }
       ]
     },
+    "_json_language_hint": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "```json"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "inner_language_hint"
+          },
+          "named": true,
+          "value": "json"
+        },
+        {
+          "type": "STRING",
+          "value": "```"
+        }
+      ]
+    },
+    "_xml_language_hint": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "```xml"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "inner_language_hint"
+          },
+          "named": true,
+          "value": "xml"
+        },
+        {
+          "type": "STRING",
+          "value": "```"
+        }
+      ]
+    },
     "multiline_string": {
       "type": "PATTERN",
       "value": "[^```]+"
@@ -215,6 +267,10 @@
     "json": {
       "type": "PATTERN",
       "value": "\\{(\\s|.)*\\}"
+    },
+    "inner_language_hint": {
+      "type": "PATTERN",
+      "value": "[^```]+"
     },
     "response": {
       "type": "SEQ",

@@ -331,3 +331,77 @@ HTTP 200 # We add this to make sure the multiline string terminates
 	(comment)
 )
 
+==================
+Json with language hint
+==================
+
+POST http://localhost:3000/api/v1
+```json
+{
+	"test": 123
+}
+```
+
+HTTP 200 # We add this to make sure the multiline string terminates
+
+---
+
+(source_file
+	(request_response
+		(request
+			(http_method)
+			(url)
+			(input
+				(json)
+			)
+		)
+		(response
+			(version_and_status
+				(http_version)
+				(status)
+			)
+		)
+	)
+	(comment)
+)
+
+==================
+XML with language hint
+==================
+
+POST http://localhost:3000/api/v1
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:m="http://example.net">
+  <soap:Header></soap:Header>
+  <soap:Body>
+    <m:GetStockPrice>
+      <m:StockName>GOOG</m:StockName>
+    </m:GetStockPrice>
+  </soap:Body>
+</soap:Envelope>
+```
+
+HTTP 200 # We add this to make sure the multiline string terminates
+
+---
+
+(source_file
+	(request_response
+		(request
+			(http_method)
+			(url)
+			(input
+				(xml)
+			)
+		)
+		(response
+			(version_and_status
+				(http_version)
+				(status)
+			)
+		)
+	)
+	(comment)
+)
+
