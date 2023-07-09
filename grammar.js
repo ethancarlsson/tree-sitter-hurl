@@ -23,6 +23,7 @@ const REQUEST_PARAM_KEYWORDS = [
 	'[BasicAuth]',
 	'[Cookies]',
 	'[MultipartFormData]',
+	'[Options]',
 ];
 
 

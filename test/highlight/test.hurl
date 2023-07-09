@@ -17,6 +17,8 @@ field1: value1
 default: false
 email: john.doe@rookie.org
 number: 33611223344
+[Options]
+test: exist
 `single line`
 
 HTTP 200

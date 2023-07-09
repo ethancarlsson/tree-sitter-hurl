@@ -276,6 +276,10 @@
     "named": false
   },
   {
+    "type": "[Options]",
+    "named": false
+  },
+  {
     "type": "[QueryStringParams]",
     "named": false
   },

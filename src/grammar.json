@@ -154,6 +154,10 @@
         {
           "type": "STRING",
           "value": "[MultipartFormData]"
+        },
+        {
+          "type": "STRING",
+          "value": "[Options]"
         }
       ]
     },
@@ -303,7 +307,7 @@
         },
         {
           "type": "PATTERN",
-          "value": "[^`\\n]*"
+          "value": "[^`]*"
         },
         {
           "type": "STRING",
