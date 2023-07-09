@@ -187,6 +187,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "oneline_string"
+        },
+        {
+          "type": "SYMBOL",
           "name": "_json_language_hint"
         },
         {
@@ -289,6 +293,23 @@
     "multiline_string": {
       "type": "PATTERN",
       "value": "[^```]+"
+    },
+    "oneline_string": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "`"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[^`\\n]*"
+        },
+        {
+          "type": "STRING",
+          "value": "`"
+        }
+      ]
     },
     "json": {
       "type": "PATTERN",

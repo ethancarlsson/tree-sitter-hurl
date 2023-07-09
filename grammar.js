@@ -58,13 +58,14 @@ module.exports = grammar({
 		key: _ => HEADER_KEY_REGEX,
 		value: $ => choice(HEADER_VALUE_REGEX, $.variable),
 
-		input: $ => choice($.json, $._json_language_hint, $._multiline_string_body, $._xml_language_hint, $._graphql_language_hint),
+		input: $ => choice($.json, $.oneline_string, $._json_language_hint, $._multiline_string_body, $._xml_language_hint, $._graphql_language_hint),
 		_multiline_string_body: $ => seq('```', $.multiline_string, '```'),
 		_json_language_hint: $ => seq('```json', alias($.inner_language_hint, $.json), '```'),
 		_xml_language_hint: $ => seq('```xml', alias($.inner_language_hint, $.xml), '```'),
 		_graphql_language_hint: $ => seq('```graphql', alias($.inner_language_hint, $.graphql), '```'),
 
 		multiline_string: _ => /[^```]+/,
+		oneline_string: _ => seq('`', /[^`]*/, '`'),
 		json: _ => /\{(\s|.)*\}/,
 		inner_language_hint: _ => /[^```]+/, // The difference is that this one doesn't need to be surrounded by curly braces, it could accept an array for example
 

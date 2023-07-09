@@ -35,6 +35,10 @@
           "named": true
         },
         {
+          "type": "oneline_string",
+          "named": true
+        },
+        {
           "type": "xml",
           "named": true
         }
@@ -48,6 +52,11 @@
   },
   {
     "type": "multiline_string",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "oneline_string",
     "named": true,
     "fields": {}
   },
@@ -268,6 +277,10 @@
   },
   {
     "type": "[QueryStringParams]",
+    "named": false
+  },
+  {
+    "type": "`",
     "named": false
   },
   {

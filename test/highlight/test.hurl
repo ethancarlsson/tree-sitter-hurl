@@ -17,20 +17,6 @@ field1: value1
 default: false
 email: john.doe@rookie.org
 number: 33611223344
-```graphql
-query Hero($episode: Episode, $withFriends: Boolean!) {
-  hero(episode: $episode) {
-    name
-    friends @include(if: $withFriends) {
-      name
-    }
-  }
-}
-
-variables {
-  "episode": "JEDI",
-  "withFriends": false
-}
-```
+`single line`
 
 HTTP 200

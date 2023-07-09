@@ -442,3 +442,33 @@ HTTP 200 # We add this to make sure the multiline string terminates
 	(comment)
 )
 
+==================
+Oneline string
+==================
+
+POST https://example.org/test
+`test`
+
+HTTP 200 # We add this to make sure the multiline string terminates
+
+---
+
+(source_file
+	(request_response
+		(request
+			(http_method)
+			(url)
+			(input
+				(oneline_string)
+			)
+		)
+		(response
+			(version_and_status
+				(http_version)
+				(status)
+			)
+		)
+	)
+	(comment)
+)
+

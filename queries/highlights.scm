@@ -5,7 +5,12 @@
 (comment) @comment
 (variable) @constant
 
-(multiline_string) @string
+(input 
+	(multiline_string) @string
+)
+(input 
+	(oneline_string) @string
+)
 
 (pair
 	(key) @string.special.key
