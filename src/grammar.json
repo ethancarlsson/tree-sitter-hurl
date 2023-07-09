@@ -184,8 +184,33 @@
         {
           "type": "SYMBOL",
           "name": "json"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_multiline_string_body"
         }
       ]
+    },
+    "_multiline_string_body": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "```"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "multiline_string"
+        },
+        {
+          "type": "STRING",
+          "value": "```"
+        }
+      ]
+    },
+    "multiline_string": {
+      "type": "PATTERN",
+      "value": "[^```]+"
     },
     "json": {
       "type": "PATTERN",
@@ -263,10 +288,6 @@
     {
       "type": "SYMBOL",
       "name": "comment"
-    },
-    {
-      "type": "SYMBOL",
-      "name": "variable"
     }
   ],
   "conflicts": [],

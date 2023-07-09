@@ -5,6 +5,8 @@
 (comment) @comment
 (variable) @constant
 
+(multiline_string) @string
+
 (pair
 	(key) @string.special.key
 	(value) @string

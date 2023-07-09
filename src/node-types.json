@@ -20,6 +20,10 @@
         {
           "type": "json",
           "named": true
+        },
+        {
+          "type": "multiline_string",
+          "named": true
         }
       ]
     }
@@ -239,6 +243,10 @@
     "named": false
   },
   {
+    "type": "```",
+    "named": false
+  },
+  {
     "type": "comment",
     "named": true
   },
@@ -248,6 +256,10 @@
   },
   {
     "type": "key",
+    "named": true
+  },
+  {
+    "type": "multiline_string",
     "named": true
   },
   {
