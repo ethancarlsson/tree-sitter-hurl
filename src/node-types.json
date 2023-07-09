@@ -129,6 +129,21 @@
     }
   },
   {
+    "type": "value",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "variable",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "version_and_status",
     "named": true,
     "fields": {},
@@ -244,7 +259,7 @@
     "named": true
   },
   {
-    "type": "value",
+    "type": "variable",
     "named": true
   }
 ]

@@ -33,7 +33,7 @@ const HEADER_KEY_REGEX = /(\w|\d|-|_)+/
 
 module.exports = grammar({
 	name: 'hurl',
-	extras: $ => [/\s/, $.comment],
+	extras: $ => [/\s/, $.comment, $.variable],
 
 	rules: {
 		source_file: $ => repeat1($.request_response),
@@ -49,12 +49,15 @@ module.exports = grammar({
 		pair: $ => seq(
 			$.key,
 			':',
-			$.value,
+			$.value
 		),
 
 		request_param_keyword: _ => choice(...REQUEST_PARAM_KEYWORDS),
+		variable: _ => /\{\{\S+\}\}/,
+
 		key: _ => HEADER_KEY_REGEX,
-		value: _ => HEADER_VALUE_REGEX,
+		value: $ => choice(HEADER_VALUE_REGEX, $.variable),
+
 
 
 		input: $ => choice($.json),

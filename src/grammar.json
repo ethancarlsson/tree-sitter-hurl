@@ -157,13 +157,26 @@
         }
       ]
     },
+    "variable": {
+      "type": "PATTERN",
+      "value": "\\{\\{\\S+\\}\\}"
+    },
     "key": {
       "type": "PATTERN",
       "value": "(\\w|\\d|-|_)+"
     },
     "value": {
-      "type": "PATTERN",
-      "value": "(\\w|\\d|-|_|\\\\|\\.|~|\\{|\\}|<|>|`|\\^|%|!|#|\\$|&|'|\"|\\(|\\)|\\*|\\+|,|\\/|:|;|=|\\?|@|\\[|\\]| |\\|)+"
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "(\\w|\\d|-|_|\\\\|\\.|~|\\{|\\}|<|>|`|\\^|%|!|#|\\$|&|'|\"|\\(|\\)|\\*|\\+|,|\\/|:|;|=|\\?|@|\\[|\\]| |\\|)+"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "variable"
+        }
+      ]
     },
     "input": {
       "type": "CHOICE",
@@ -250,6 +263,10 @@
     {
       "type": "SYMBOL",
       "name": "comment"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "variable"
     }
   ],
   "conflicts": [],
