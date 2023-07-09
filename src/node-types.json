@@ -1,5 +1,10 @@
 [
   {
+    "type": "graphql",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "http_method",
     "named": true,
     "fields": {}
@@ -17,6 +22,10 @@
       "multiple": false,
       "required": true,
       "types": [
+        {
+          "type": "graphql",
+          "named": true
+        },
         {
           "type": "json",
           "named": true
@@ -263,6 +272,10 @@
   },
   {
     "type": "```",
+    "named": false
+  },
+  {
+    "type": "```graphql",
     "named": false
   },
   {

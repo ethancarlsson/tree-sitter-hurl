@@ -17,16 +17,20 @@ field1: value1
 default: false
 email: john.doe@rookie.org
 number: 33611223344
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:m="http://example.net">
-  <soap:Header></soap:Header>
-  <soap:Body>
-    <m:GetStockPrice>
-      <m:StockName>GOOG</m:StockName>
-    </m:GetStockPrice>
-  </soap:Body>
-</soap:Envelope>
+```graphql
+query Hero($episode: Episode, $withFriends: Boolean!) {
+  hero(episode: $episode) {
+    name
+    friends @include(if: $withFriends) {
+      name
+    }
+  }
+}
+
+variables {
+  "episode": "JEDI",
+  "withFriends": false
+}
 ```
 
 HTTP 200

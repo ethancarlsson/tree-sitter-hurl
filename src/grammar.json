@@ -196,6 +196,10 @@
         {
           "type": "SYMBOL",
           "name": "_xml_language_hint"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_graphql_language_hint"
         }
       ]
     },
@@ -253,6 +257,28 @@
           },
           "named": true,
           "value": "xml"
+        },
+        {
+          "type": "STRING",
+          "value": "```"
+        }
+      ]
+    },
+    "_graphql_language_hint": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "```graphql"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "inner_language_hint"
+          },
+          "named": true,
+          "value": "graphql"
         },
         {
           "type": "STRING",
