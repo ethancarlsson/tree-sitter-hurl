@@ -47,11 +47,6 @@ module.exports = grammar({
 		http_method: _ => choice(...HTTP_METHODS),
 		url: _ => URL_REGEX,
 
-		pair: $ => seq(
-			$.key,
-			':',
-			$.value
-		),
 
 		request_param_keyword: _ => choice(...REQUEST_PARAM_KEYWORDS),
 		variable: _ => /\{\{\S+\}\}/,
@@ -59,7 +54,16 @@ module.exports = grammar({
 		key: _ => HEADER_KEY_REGEX,
 		value: $ => choice(HEADER_VALUE_REGEX, $.variable),
 
-		input: $ => choice($.json, $.oneline_string, $._json_language_hint, $._multiline_string_body, $._xml_language_hint, $._graphql_language_hint),
+		input: $ => choice(
+			$.json,
+			$.oneline_string,
+			$._json_language_hint,
+			$._multiline_string_body,
+			$._xml_language_hint,
+			$._graphql_language_hint,
+			$._base64
+		),
+
 		_multiline_string_body: $ => seq('```', $.multiline_string, '```'),
 		_json_language_hint: $ => seq('```json', alias($.inner_language_hint, $.json), '```'),
 		_xml_language_hint: $ => seq('```xml', alias($.inner_language_hint, $.xml), '```'),
@@ -67,6 +71,9 @@ module.exports = grammar({
 
 		multiline_string: _ => /[^```]+/,
 		oneline_string: _ => seq('`', /[^`]*/, '`'),
+
+		_base64: $ => seq('base64', ',', $.oneline_base64, ';'),
+		oneline_base64: _ => /[A-Za-z0-9-=+ \n]+/,
 		json: _ => /\{(\s|.)*\}/,
 		inner_language_hint: _ => /[^```]+/, // The difference is that this one doesn't need to be surrounded by curly braces, it could accept an array for example
 
@@ -74,6 +81,12 @@ module.exports = grammar({
 		version_and_status: $ => seq($.http_version, $.status),
 		http_version: _ => choice(...HTTP_VERSIONS),
 		status: _ => /[1-5]\d\d/,
+
+		pair: $ => seq(
+			$.key,
+			':',
+			$.value
+		),
 
 		comment: _ => token(seq(
 			'#', /.*/

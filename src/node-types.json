@@ -35,6 +35,10 @@
           "named": true
         },
         {
+          "type": "oneline_base64",
+          "named": true
+        },
+        {
           "type": "oneline_string",
           "named": true
         },
@@ -204,7 +208,15 @@
     "fields": {}
   },
   {
+    "type": ",",
+    "named": false
+  },
+  {
     "type": ":",
+    "named": false
+  },
+  {
+    "type": ";",
     "named": false
   },
   {
@@ -304,11 +316,19 @@
     "named": false
   },
   {
+    "type": "base64",
+    "named": false
+  },
+  {
     "type": "comment",
     "named": true
   },
   {
     "type": "key",
+    "named": true
+  },
+  {
+    "type": "oneline_base64",
     "named": true
   },
   {
