@@ -199,6 +199,10 @@
         {
           "type": "SYMBOL",
           "name": "_hex"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_oneline_file"
         }
       ]
     },
@@ -355,6 +359,51 @@
     "oneline_hex": {
       "type": "PATTERN",
       "value": "[0-9A-Fa-f]+"
+    },
+    "_oneline_file": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "file"
+        },
+        {
+          "type": "STRING",
+          "value": ","
+        },
+        {
+          "type": "SYMBOL",
+          "name": "filename"
+        },
+        {
+          "type": "STRING",
+          "value": ";"
+        }
+      ]
+    },
+    "filename": {
+      "type": "REPEAT1",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "filename_escaped_char"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "filename_text"
+          }
+        ]
+      }
+    },
+    "filename_escaped_char": {
+      "type": "PATTERN",
+      "value": "\\\\(;|#|[ ])"
+    },
+    "filename_text": {
+      "type": "PATTERN",
+      "value": "[^#; \\n\\\\]+"
     },
     "json": {
       "type": "PATTERN",

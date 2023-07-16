@@ -1,5 +1,24 @@
 [
   {
+    "type": "filename",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "filename_escaped_char",
+          "named": true
+        },
+        {
+          "type": "filename_text",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "graphql",
     "named": true,
     "fields": {}
@@ -22,6 +41,10 @@
       "multiple": false,
       "required": true,
       "types": [
+        {
+          "type": "filename",
+          "named": true
+        },
         {
           "type": "graphql",
           "named": true
@@ -325,6 +348,18 @@
   },
   {
     "type": "comment",
+    "named": true
+  },
+  {
+    "type": "file",
+    "named": false
+  },
+  {
+    "type": "filename_escaped_char",
+    "named": true
+  },
+  {
+    "type": "filename_text",
     "named": true
   },
   {

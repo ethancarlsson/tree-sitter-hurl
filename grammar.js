@@ -63,6 +63,7 @@ module.exports = grammar({
 			$._graphql_language_hint,
 			$._base64,
 			$._hex,
+			$._oneline_file,
 		),
 
 		_multiline_string_body: $ => seq('```', $.multiline_string, '```'),
@@ -77,6 +78,10 @@ module.exports = grammar({
 		oneline_base64: _ => /[A-Za-z0-9-=+ \n]+/,
 		_hex: $ => seq('hex', ',', $.oneline_hex, ';'),
 		oneline_hex: _ => /[0-9A-Fa-f]+/,
+		_oneline_file: $ => seq('file', ',', $.filename, ';'),
+		filename: $ => repeat1(choice($.filename_escaped_char, $.filename_text)),
+		filename_escaped_char: _ => /\\(;|#|[ ])/,
+		filename_text: _ => /[^#; \n\\]+/,
 
 		json: _ => /\{(\s|.)*\}/,
 		inner_language_hint: _ => /[^```]+/, // The difference is that this one doesn't need to be surrounded by curly braces, it could accept an array for example

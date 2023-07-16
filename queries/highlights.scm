@@ -11,6 +11,18 @@
 (input 
 	(oneline_string) @string
 )
+(input 
+	(filename(filename_text) @string)
+)
+(input 
+	(filename(filename_escaped_char) @escape)
+)
+(input 
+	(oneline_hex) @number
+)
+(input 
+	(oneline_base64) @string
+)
 
 (pair
 	(key) @string.special.key

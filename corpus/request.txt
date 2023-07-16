@@ -533,3 +533,71 @@ HTTP 200
 	)
 )
 
+==================
+File
+==================
+
+POST https://example.org/test
+file,test.txt;
+
+
+HTTP 200
+
+---
+
+(source_file
+	(request_response
+		(request
+			(http_method)
+			(url)
+			(input
+				(filename (filename_text))
+			)
+		)
+		(response
+			(version_and_status
+				(http_version)
+				(status)
+			)
+		)
+	)
+)
+
+==================
+File with escaped characters
+==================
+
+POST https://example.org/test
+file,file\ with\;escaped\#chars.txt;
+
+
+HTTP 200
+
+---
+
+(source_file
+	(request_response
+		(request
+			(http_method)
+			(url)
+			(input
+				(filename
+					(filename_text)
+					(filename_escaped_char)
+					(filename_text)
+					(filename_escaped_char)
+					(filename_text)
+					(filename_escaped_char)
+					(filename_text)
+				)
+			)
+		)
+		(response
+			(version_and_status
+				(http_version)
+				(status)
+			)
+		)
+	)
+)
+
