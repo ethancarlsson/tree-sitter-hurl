@@ -481,7 +481,7 @@ base64,TG9yZW0gaXBzdW0gZG9sb3Igc2l0IGFtZXQsIGNvbnNlY3RldHVyIGFkaXBpc2NpbmcgZ
 WxpdC4gSW4gbWFsZXN1YWRhLCBuaXNsIHZlbCBkaWN0dW0gaGVuZHJlcml0LCBlc3QganVzdG8gY
 mliZW5kdW0gbWV0dXMsIG5lYyBydXRydW0gdG9ydG9yIG1hc3NhIGlkIG1ldHVzLiA=;
 
-HTTP 200 # We add this to make sure the multiline string terminates
+HTTP 200
 
 ---
 
@@ -501,6 +501,35 @@ HTTP 200 # We add this to make sure the multiline string terminates
 			)
 		)
 	)
-	(comment)
+)
+
+==================
+Hex
+==================
+
+POST https://example.org/test
+hex,636166c3a90a;
+
+
+HTTP 200
+
+---
+
+(source_file
+	(request_response
+		(request
+			(http_method)
+			(url)
+			(input
+				(oneline_hex)
+			)
+		)
+		(response
+			(version_and_status
+				(http_version)
+				(status)
+			)
+		)
+	)
 )
 

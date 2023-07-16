@@ -39,6 +39,10 @@
           "named": true
         },
         {
+          "type": "oneline_hex",
+          "named": true
+        },
+        {
           "type": "oneline_string",
           "named": true
         },
@@ -324,11 +328,19 @@
     "named": true
   },
   {
+    "type": "hex",
+    "named": false
+  },
+  {
     "type": "key",
     "named": true
   },
   {
     "type": "oneline_base64",
+    "named": true
+  },
+  {
+    "type": "oneline_hex",
     "named": true
   },
   {

@@ -195,6 +195,10 @@
         {
           "type": "SYMBOL",
           "name": "_base64"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_hex"
         }
       ]
     },
@@ -326,6 +330,31 @@
     "oneline_base64": {
       "type": "PATTERN",
       "value": "[A-Za-z0-9-=+ \\n]+"
+    },
+    "_hex": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "hex"
+        },
+        {
+          "type": "STRING",
+          "value": ","
+        },
+        {
+          "type": "SYMBOL",
+          "name": "oneline_hex"
+        },
+        {
+          "type": "STRING",
+          "value": ";"
+        }
+      ]
+    },
+    "oneline_hex": {
+      "type": "PATTERN",
+      "value": "[0-9A-Fa-f]+"
     },
     "json": {
       "type": "PATTERN",

@@ -61,7 +61,8 @@ module.exports = grammar({
 			$._multiline_string_body,
 			$._xml_language_hint,
 			$._graphql_language_hint,
-			$._base64
+			$._base64,
+			$._hex,
 		),
 
 		_multiline_string_body: $ => seq('```', $.multiline_string, '```'),
@@ -74,6 +75,9 @@ module.exports = grammar({
 
 		_base64: $ => seq('base64', ',', $.oneline_base64, ';'),
 		oneline_base64: _ => /[A-Za-z0-9-=+ \n]+/,
+		_hex: $ => seq('hex', ',', $.oneline_hex, ';'),
+		oneline_hex: _ => /[0-9A-Fa-f]+/,
+
 		json: _ => /\{(\s|.)*\}/,
 		inner_language_hint: _ => /[^```]+/, // The difference is that this one doesn't need to be surrounded by curly braces, it could accept an array for example
 
