@@ -4,17 +4,8 @@
     "entry": {
       "type": "REPEAT1",
       "content": {
-        "type": "CHOICE",
-        "members": [
-          {
-            "type": "SYMBOL",
-            "name": "_request_response"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "_sp"
-          }
-        ]
+        "type": "SYMBOL",
+        "name": "_request_response"
       }
     },
     "_request_response": {
@@ -54,20 +45,20 @@
           "name": "url"
         },
         {
-          "type": "REPEAT",
-          "content": {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "pair"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "request_param_keyword"
-              }
-            ]
-          }
+          "type": "SYMBOL",
+          "name": "_lt"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_header"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         },
         {
           "type": "CHOICE",
@@ -128,9 +119,42 @@
       "type": "PATTERN",
       "value": "[ \\t]"
     },
+    "_lt": {
+      "type": "PATTERN",
+      "value": "\\n"
+    },
     "url": {
       "type": "PATTERN",
       "value": "(https?:\\/\\/[^\\s]+)"
+    },
+    "_header": {
+      "type": "REPEAT1",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_lt"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "key_value"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "request_param_keyword"
+              }
+            ]
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_lt"
+          }
+        ]
+      }
     },
     "request_param_keyword": {
       "type": "CHOICE",
@@ -477,7 +501,7 @@
       "type": "PATTERN",
       "value": "[1-5]\\d\\d"
     },
-    "pair": {
+    "key_value": {
       "type": "SEQ",
       "members": [
         {

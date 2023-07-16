@@ -163,7 +163,7 @@ User-Agent: test
 	(request
 		(http_method)
 		(url)
-		(pair
+		(key_value
 			(key)
 			(value)
 		)
@@ -186,7 +186,7 @@ User-Agent_2: test-22-(with-symbols)\and|_json_aftertest_ :;.,\/"'?!(){}[]@<>=-+
 	(request
 		(http_method)
 		(url)
-		(pair
+		(key_value
 			(key)
 			(value)
 		)
@@ -222,27 +222,27 @@ default: false
 		(http_method)
 		(url)
 		(request_param_keyword)
-		(pair
+		(key_value
 			(key)
 			(value)
 		)
 		(request_param_keyword)
-		(pair
+		(key_value
 			(key)
 			(value)
 		)
 		(request_param_keyword)
-		(pair
+		(key_value
 			(key)
 			(value)
 		)
 		(request_param_keyword)
-		(pair
+		(key_value
 			(key)
 			(value)
 		)
 		(request_param_keyword)
-		(pair
+		(key_value
 			(key)
 			(value)
 		)
@@ -268,7 +268,7 @@ query_param: {{custom-variable}}
 		(http_method)
 		(url)
 		(request_param_keyword)
-		(pair
+		(key_value
 			(key)
 			(value
 				(variable)

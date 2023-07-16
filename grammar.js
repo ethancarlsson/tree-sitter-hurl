@@ -37,16 +37,18 @@ module.exports = grammar({
 	extras: $ => [/\s/, $.comment],
 
 	rules: {
-		entry: $ => repeat1(choice($._request_response, $._sp)),
+		entry: $ => repeat1($._request_response),
 
 		_request_response: $ => seq($.request, optional($.response)),
 
-		request: $ => seq($.http_method, $._sp, $.url, repeat(choice($.pair, $.request_param_keyword)), optional($.input)),
-	
+		request: $ => seq($.http_method, $._sp, $.url, $._lt, optional($._header), optional($.input)),
+
 		http_method: _ => choice(...HTTP_METHODS),
 		_sp: _ => /[ \t]/,
+		_lt: _ => /\n/,
 		url: _ => URL_REGEX,
 
+		_header: $ => repeat1(seq(choice($._lt, $.key_value, $.request_param_keyword), $._lt)),
 
 		request_param_keyword: _ => choice(...REQUEST_PARAM_KEYWORDS),
 		variable: _ => /\{\{\S+\}\}/,
@@ -91,7 +93,7 @@ module.exports = grammar({
 		http_version: _ => choice(...HTTP_VERSIONS),
 		status: _ => /[1-5]\d\d/,
 
-		pair: $ => seq(
+		key_value: $ => seq(
 			$.key,
 			':',
 			$.value
