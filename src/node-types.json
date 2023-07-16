@@ -1,5 +1,20 @@
 [
   {
+    "type": "entry",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "request_response",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "filename",
     "named": true,
     "fields": {},
@@ -175,21 +190,6 @@
       "types": [
         {
           "type": "version_and_status",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "source_file",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "request_response",
           "named": true
         }
       ]

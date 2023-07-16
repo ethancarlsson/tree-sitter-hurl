@@ -6,7 +6,7 @@ POST http://example.com
 
 ---
 
-(source_file
+(entry
 	(request_response
 		(request
 			(http_method)
@@ -23,7 +23,7 @@ POST https://example.com
 
 ---
 
-(source_file
+(entry
 	(request_response
 		(request
 			(http_method)
@@ -42,7 +42,7 @@ POST https://example.com
 
 ---
 
-(source_file
+(entry
 	(request_response
 		(request
 			(http_method)
@@ -66,7 +66,7 @@ POST https://example.com
 
 ---
 
-(source_file
+(entry
 	(request_response
 		(request
 			(http_method)
@@ -92,7 +92,7 @@ HTTP 200
 
 ---
 
-(source_file
+(entry
 	(request_response
 		(request
 			(http_method)
@@ -124,7 +124,7 @@ POST http://example.com
 
 ---
 
-(source_file
+(entry
 	(request_response
 		(request
 			(http_method)
@@ -152,7 +152,7 @@ POST http://example.com
 ## and here
 ---
 
-(source_file
+(entry
 	(comment)
 	(comment)
 	(request_response
@@ -173,7 +173,7 @@ User-Agent: test
 
 ---
 
-(source_file
+(entry
 	(request_response
 		(request
 			(http_method)
@@ -198,7 +198,7 @@ User-Agent_2: test-22-(with-symbols)\and|_json_aftertest_ :;.,\/"'?!(){}[]@<>=-+
 
 ---
 
-(source_file
+(entry
 	(request_response
 		(request
 			(http_method)
@@ -235,7 +235,7 @@ default: false
 
 ---
 
-(source_file
+(entry
 	(request_response
 		(request
 			(http_method)
@@ -283,7 +283,7 @@ query_param: {{custom-variable}}
 
 ---
 
-(source_file
+(entry
 	(request_response
 		(request
 			(http_method)
@@ -312,7 +312,7 @@ HTTP 200 # We add this to make sure the multiline string terminates
 
 ---
 
-(source_file
+(entry
 	(request_response
 		(request
 			(http_method)
@@ -346,7 +346,7 @@ HTTP 200 # We add this to make sure the multiline string terminates
 
 ---
 
-(source_file
+(entry
 	(request_response
 		(request
 			(http_method)
@@ -386,7 +386,7 @@ HTTP 200 # We add this to make sure the multiline string terminates
 
 ---
 
-(source_file
+(entry
 	(request_response
 		(request
 			(http_method)
@@ -423,7 +423,7 @@ HTTP 200 # We add this to make sure the multiline string terminates
 
 ---
 
-(source_file
+(entry
 	(request_response
 		(request
 			(http_method)
@@ -453,7 +453,7 @@ HTTP 200 # We add this to make sure the multiline string terminates
 
 ---
 
-(source_file
+(entry
 	(request_response
 		(request
 			(http_method)
@@ -485,7 +485,7 @@ HTTP 200
 
 ---
 
-(source_file
+(entry
 	(request_response
 		(request
 			(http_method)
@@ -515,7 +515,7 @@ HTTP 200
 
 ---
 
-(source_file
+(entry
 	(request_response
 		(request
 			(http_method)
@@ -545,7 +545,7 @@ HTTP 200
 
 ---
 
-(source_file
+(entry
 	(request_response
 		(request
 			(http_method)
@@ -575,7 +575,7 @@ HTTP 200
 
 ---
 
-(source_file
+(entry
 	(request_response
 		(request
 			(http_method)

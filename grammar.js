@@ -37,8 +37,7 @@ module.exports = grammar({
 	extras: $ => [/\s/, $.comment],
 
 	rules: {
-		source_file: $ => repeat1($.request_response),
-
+		entry: $ => repeat1($.request_response),
 
 		request_response: $ => seq($.request, optional($.response)),
 

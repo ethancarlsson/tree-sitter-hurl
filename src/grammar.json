@@ -1,7 +1,7 @@
 {
   "name": "hurl",
   "rules": {
-    "source_file": {
+    "entry": {
       "type": "REPEAT1",
       "content": {
         "type": "SYMBOL",

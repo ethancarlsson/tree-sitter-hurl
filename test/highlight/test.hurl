@@ -19,6 +19,6 @@ email: john.doe@rookie.org
 number: 33611223344
 [Options]
 test: exist
-file,test one\#two three.txt\;sadf;
+file,test\#onesadf;
 
 HTTP 200
