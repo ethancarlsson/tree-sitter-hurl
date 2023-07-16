@@ -1,6 +1,8 @@
-(http_method) @keyword
+(request 
+	(http_method) @keyword
+	(url) @name
+ )
 (request_param_keyword) @keyword
-(url) @name
 (status) @number
 (comment) @comment
 (variable) @constant
