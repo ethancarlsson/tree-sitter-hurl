@@ -4,8 +4,17 @@
     "entry": {
       "type": "REPEAT1",
       "content": {
-        "type": "SYMBOL",
-        "name": "_request_response"
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "_request_response"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_sp"
+          }
+        ]
       }
     },
     "_request_response": {
@@ -35,6 +44,10 @@
         {
           "type": "SYMBOL",
           "name": "http_method"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_sp"
         },
         {
           "type": "SYMBOL",
@@ -110,6 +123,10 @@
           "value": "PATCH"
         }
       ]
+    },
+    "_sp": {
+      "type": "PATTERN",
+      "value": "[ \\t]"
     },
     "url": {
       "type": "PATTERN",
