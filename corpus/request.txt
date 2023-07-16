@@ -7,11 +7,9 @@ POST http://example.com
 ---
 
 (entry
-	(request_response
-		(request
-			(http_method)
-			(url)
-		)
+	(request
+		(http_method)
+		(url)
 	)
 )
 
@@ -24,11 +22,9 @@ POST https://example.com
 ---
 
 (entry
-	(request_response
-		(request
-			(http_method)
-			(url)
-		)
+	(request
+		(http_method)
+		(url)
 	)
 )
 
@@ -43,13 +39,11 @@ POST https://example.com
 ---
 
 (entry
-	(request_response
-		(request
-			(http_method)
-			(url)
-			(input
-				(json)
-			)
+	(request
+		(http_method)
+		(url)
+		(input
+			(json)
 		)
 	)
 )
@@ -67,13 +61,11 @@ POST https://example.com
 ---
 
 (entry
-	(request_response
-		(request
-			(http_method)
-			(url)
-			(input
-				(json)
-			)
+	(request
+		(http_method)
+		(url)
+		(input
+			(json)
 		)
 	)
 )
@@ -93,19 +85,17 @@ HTTP 200
 ---
 
 (entry
-	(request_response
-		(request
-			(http_method)
-			(url)
-			(input
-				(json)
-			)
+	(request
+		(http_method)
+		(url)
+		(input
+			(json)
 		)
-		(response
-			(version_and_status
-				(http_version)
-				(status)
-			)
+	)
+	(response
+		(version_and_status
+			(http_version)
+			(status)
 		)
 	)
 )
@@ -125,13 +115,11 @@ POST http://example.com
 ---
 
 (entry
-	(request_response
-		(request
-			(http_method)
-			(url)
-			(input
-				(json)
-			)
+	(request
+		(http_method)
+		(url)
+		(input
+			(json)
 		)
 	)
 	(ERROR
@@ -155,11 +143,9 @@ POST http://example.com
 (entry
 	(comment)
 	(comment)
-	(request_response
-		(request
-			(http_method)
-			(url)
-		)
+	(request
+		(http_method)
+		(url)
 	)
 	(comment)
 )
@@ -174,14 +160,12 @@ User-Agent: test
 ---
 
 (entry
-	(request_response
-		(request
-			(http_method)
-			(url)
-			(pair
-				(key)
-				(value)
-			)
+	(request
+		(http_method)
+		(url)
+		(pair
+			(key)
+			(value)
 		)
 	)
 )
@@ -199,17 +183,15 @@ User-Agent_2: test-22-(with-symbols)\and|_json_aftertest_ :;.,\/"'?!(){}[]@<>=-+
 ---
 
 (entry
-	(request_response
-		(request
-			(http_method)
-			(url)
-			(pair
-				(key)
-				(value)
-			)
-			(input
-				(json)
-			)
+	(request
+		(http_method)
+		(url)
+		(pair
+			(key)
+			(value)
+		)
+		(input
+			(json)
 		)
 	)
 )
@@ -236,38 +218,36 @@ default: false
 ---
 
 (entry
-	(request_response
-		(request
-			(http_method)
-			(url)
-			(request_param_keyword)
-			(pair
-				(key)
-				(value)
-			)
-			(request_param_keyword)
-			(pair
-				(key)
-				(value)
-			)
-			(request_param_keyword)
-			(pair
-				(key)
-				(value)
-			)
-			(request_param_keyword)
-			(pair
-				(key)
-				(value)
-			)
-			(request_param_keyword)
-			(pair
-				(key)
-				(value)
-			)
-			(input
-				(json)
-			)
+	(request
+		(http_method)
+		(url)
+		(request_param_keyword)
+		(pair
+			(key)
+			(value)
+		)
+		(request_param_keyword)
+		(pair
+			(key)
+			(value)
+		)
+		(request_param_keyword)
+		(pair
+			(key)
+			(value)
+		)
+		(request_param_keyword)
+		(pair
+			(key)
+			(value)
+		)
+		(request_param_keyword)
+		(pair
+			(key)
+			(value)
+		)
+		(input
+			(json)
 		)
 	)
 )
@@ -284,16 +264,14 @@ query_param: {{custom-variable}}
 ---
 
 (entry
-	(request_response
-		(request
-			(http_method)
-			(url)
-			(request_param_keyword)
-			(pair
-				(key)
-				(value
-					(variable)
-				)
+	(request
+		(http_method)
+		(url)
+		(request_param_keyword)
+		(pair
+			(key)
+			(value
+				(variable)
 			)
 		)
 	)
@@ -313,19 +291,17 @@ HTTP 200 # We add this to make sure the multiline string terminates
 ---
 
 (entry
-	(request_response
-		(request
-			(http_method)
-			(url)
-			(input
-				(multiline_string)
-			)
+	(request
+		(http_method)
+		(url)
+		(input
+			(multiline_string)
 		)
-		(response
-			(version_and_status
-				(http_version)
-				(status)
-			)
+	)
+	(response
+		(version_and_status
+			(http_version)
+			(status)
 		)
 	)
 	(comment)
@@ -347,19 +323,17 @@ HTTP 200 # We add this to make sure the multiline string terminates
 ---
 
 (entry
-	(request_response
-		(request
-			(http_method)
-			(url)
-			(input
-				(json)
-			)
+	(request
+		(http_method)
+		(url)
+		(input
+			(json)
 		)
-		(response
-			(version_and_status
-				(http_version)
-				(status)
-			)
+	)
+	(response
+		(version_and_status
+			(http_version)
+			(status)
 		)
 	)
 	(comment)
@@ -387,19 +361,17 @@ HTTP 200 # We add this to make sure the multiline string terminates
 ---
 
 (entry
-	(request_response
-		(request
-			(http_method)
-			(url)
-			(input
-				(xml)
-			)
+	(request
+		(http_method)
+		(url)
+		(input
+			(xml)
 		)
-		(response
-			(version_and_status
-				(http_version)
-				(status)
-			)
+	)
+	(response
+		(version_and_status
+			(http_version)
+			(status)
 		)
 	)
 	(comment)
@@ -424,19 +396,17 @@ HTTP 200 # We add this to make sure the multiline string terminates
 ---
 
 (entry
-	(request_response
-		(request
-			(http_method)
-			(url)
-			(input
-				(graphql)
-			)
+	(request
+		(http_method)
+		(url)
+		(input
+			(graphql)
 		)
-		(response
-			(version_and_status
-				(http_version)
-				(status)
-			)
+	)
+	(response
+		(version_and_status
+			(http_version)
+			(status)
 		)
 	)
 	(comment)
@@ -454,19 +424,17 @@ HTTP 200 # We add this to make sure the multiline string terminates
 ---
 
 (entry
-	(request_response
-		(request
-			(http_method)
-			(url)
-			(input
-				(oneline_string)
-			)
+	(request
+		(http_method)
+		(url)
+		(input
+			(oneline_string)
 		)
-		(response
-			(version_and_status
-				(http_version)
-				(status)
-			)
+	)
+	(response
+		(version_and_status
+			(http_version)
+			(status)
 		)
 	)
 	(comment)
@@ -486,19 +454,17 @@ HTTP 200
 ---
 
 (entry
-	(request_response
-		(request
-			(http_method)
-			(url)
-			(input
-				(oneline_base64)
-			)
+	(request
+		(http_method)
+		(url)
+		(input
+			(oneline_base64)
 		)
-		(response
-			(version_and_status
-				(http_version)
-				(status)
-			)
+	)
+	(response
+		(version_and_status
+			(http_version)
+			(status)
 		)
 	)
 )
@@ -516,19 +482,17 @@ HTTP 200
 ---
 
 (entry
-	(request_response
-		(request
-			(http_method)
-			(url)
-			(input
-				(oneline_hex)
-			)
+	(request
+		(http_method)
+		(url)
+		(input
+			(oneline_hex)
 		)
-		(response
-			(version_and_status
-				(http_version)
-				(status)
-			)
+	)
+	(response
+		(version_and_status
+			(http_version)
+			(status)
 		)
 	)
 )
@@ -546,19 +510,17 @@ HTTP 200
 ---
 
 (entry
-	(request_response
-		(request
-			(http_method)
-			(url)
-			(input
-				(filename (filename_text))
-			)
+	(request
+		(http_method)
+		(url)
+		(input
+			(filename (filename_text))
 		)
-		(response
-			(version_and_status
-				(http_version)
-				(status)
-			)
+	)
+	(response
+		(version_and_status
+			(http_version)
+			(status)
 		)
 	)
 )
@@ -576,27 +538,25 @@ HTTP 200
 ---
 
 (entry
-	(request_response
-		(request
-			(http_method)
-			(url)
-			(input
-				(filename
-					(filename_text)
-					(filename_escaped_char)
-					(filename_text)
-					(filename_escaped_char)
-					(filename_text)
-					(filename_escaped_char)
-					(filename_text)
-				)
+	(request
+		(http_method)
+		(url)
+		(input
+			(filename
+				(filename_text)
+				(filename_escaped_char)
+				(filename_text)
+				(filename_escaped_char)
+				(filename_text)
+				(filename_escaped_char)
+				(filename_text)
 			)
 		)
-		(response
-			(version_and_status
-				(http_version)
-				(status)
-			)
+	)
+	(response
+		(version_and_status
+			(http_version)
+			(status)
 		)
 	)
 )

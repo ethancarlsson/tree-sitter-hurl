@@ -8,7 +8,11 @@
       "required": true,
       "types": [
         {
-          "type": "request_response",
+          "type": "request",
+          "named": true
+        },
+        {
+          "type": "response",
           "named": true
         }
       ]
@@ -160,25 +164,6 @@
     "type": "request_param_keyword",
     "named": true,
     "fields": {}
-  },
-  {
-    "type": "request_response",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "request",
-          "named": true
-        },
-        {
-          "type": "response",
-          "named": true
-        }
-      ]
-    }
   },
   {
     "type": "response",

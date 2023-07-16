@@ -37,9 +37,9 @@ module.exports = grammar({
 	extras: $ => [/\s/, $.comment],
 
 	rules: {
-		entry: $ => repeat1($.request_response),
+		entry: $ => repeat1($._request_response),
 
-		request_response: $ => seq($.request, optional($.response)),
+		_request_response: $ => seq($.request, optional($.response)),
 
 		request: $ => seq($.http_method, $.url, repeat(choice($.pair, $.request_param_keyword)), optional($.input)),
 
