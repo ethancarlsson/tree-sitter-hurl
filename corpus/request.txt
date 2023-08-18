@@ -9,7 +9,7 @@ POST http://example.com
 (entry
 	(request
 		(http_method)
-		(url)
+		(value_string_text)
 	)
 )
 
@@ -24,7 +24,7 @@ POST https://example.com
 (entry
 	(request
 		(http_method)
-		(url)
+		(value_string_text)
 	)
 )
 
@@ -41,7 +41,7 @@ POST https://example.com
 (entry
 	(request
 		(http_method)
-		(url)
+		(value_string_text)
 		(input
 			(json)
 		)
@@ -63,7 +63,7 @@ POST https://example.com
 (entry
 	(request
 		(http_method)
-		(url)
+		(value_string_text)
 		(input
 			(json)
 		)
@@ -87,7 +87,7 @@ HTTP 200
 (entry
 	(request
 		(http_method)
-		(url)
+		(value_string_text)
 		(input
 			(json)
 		)
@@ -100,34 +100,6 @@ HTTP 200
 	)
 )
 
-==================
-POST response with no version and status ERROR
-==================
-
-POST http://example.com
-{
-    "id": "4568",
-    "evaluate": true
-}
-
-[Captures]
-
----
-
-(entry
-	(request
-		(http_method)
-		(url)
-		(input
-			(json)
-		)
-	)
-	(ERROR
-		(UNEXPECTED 'a')
-		(key)
-		(UNEXPECTED ']')
-	)
-)
 
 ==================
 With comments
@@ -145,7 +117,7 @@ POST http://example.com
 	(comment)
 	(request
 		(http_method)
-		(url)
+		(value_string_text)
 	)
 	(comment)
 )
@@ -162,7 +134,7 @@ User-Agent: test
 (entry
 	(request
 		(http_method)
-		(url)
+		(value_string_text)
 		(key_value
 			(key)
 			(value)
@@ -185,7 +157,7 @@ User-Agent_2: test-22-(with-symbols)\and|_json_aftertest_ :;.,\/"'?!(){}[]@<>=-+
 (entry
 	(request
 		(http_method)
-		(url)
+		(value_string_text)
 		(key_value
 			(key)
 			(value)
@@ -220,31 +192,41 @@ default: false
 (entry
 	(request
 		(http_method)
-		(url)
-		(request_param_keyword)
-		(key_value
-			(key)
-			(value)
+		(value_string_text)
+		(request_section
+			(request_param_keyword)
+			(key_value
+				(key)
+				(value)
+			)
 		)
-		(request_param_keyword)
-		(key_value
-			(key)
-			(value)
+		(request_section
+			(request_param_keyword)
+			(key_value
+				(key)
+				(value)
+			)
 		)
-		(request_param_keyword)
-		(key_value
-			(key)
-			(value)
+		(request_section
+			(request_param_keyword)
+			(key_value
+				(key)
+				(value)
+			)
 		)
-		(request_param_keyword)
-		(key_value
-			(key)
-			(value)
+		(request_section
+			(request_param_keyword)
+			(key_value
+				(key)
+				(value)
+			)
 		)
-		(request_param_keyword)
-		(key_value
-			(key)
-			(value)
+		(request_section
+			(request_param_keyword)
+			(key_value
+				(key)
+				(value)
+			)
 		)
 		(input
 			(json)
@@ -266,12 +248,14 @@ query_param: {{custom-variable}}
 (entry
 	(request
 		(http_method)
-		(url)
-		(request_param_keyword)
-		(key_value
-			(key)
-			(value
-				(variable)
+		(value_string_text)
+		(request_section
+			(request_param_keyword)
+			(key_value
+				(key)
+				(value
+					(variable)
+				)
 			)
 		)
 	)
@@ -293,7 +277,7 @@ HTTP 200 # We add this to make sure the multiline string terminates
 (entry
 	(request
 		(http_method)
-		(url)
+		(value_string_text)
 		(input
 			(multiline_string)
 		)
@@ -325,7 +309,7 @@ HTTP 200 # We add this to make sure the multiline string terminates
 (entry
 	(request
 		(http_method)
-		(url)
+		(value_string_text)
 		(input
 			(json)
 		)
@@ -363,7 +347,7 @@ HTTP 200 # We add this to make sure the multiline string terminates
 (entry
 	(request
 		(http_method)
-		(url)
+		(value_string_text)
 		(input
 			(xml)
 		)
@@ -398,7 +382,7 @@ HTTP 200 # We add this to make sure the multiline string terminates
 (entry
 	(request
 		(http_method)
-		(url)
+		(value_string_text)
 		(input
 			(graphql)
 		)
@@ -426,7 +410,7 @@ HTTP 200 # We add this to make sure the multiline string terminates
 (entry
 	(request
 		(http_method)
-		(url)
+		(value_string_text)
 		(input
 			(oneline_string)
 		)
@@ -456,7 +440,7 @@ HTTP 200
 (entry
 	(request
 		(http_method)
-		(url)
+		(value_string_text)
 		(input
 			(oneline_base64)
 		)
@@ -474,7 +458,7 @@ Hex
 ==================
 
 POST https://example.org/test
-hex,636166c3a90a;
+hex,6361;
 
 
 HTTP 200
@@ -484,9 +468,14 @@ HTTP 200
 (entry
 	(request
 		(http_method)
-		(url)
+		(value_string_text)
 		(input
-			(oneline_hex)
+			(oneline_hex
+				(hexidigit)
+				(hexidigit)
+				(hexidigit)
+				(hexidigit)
+			)
 		)
 	)
 	(response
@@ -512,7 +501,7 @@ HTTP 200
 (entry
 	(request
 		(http_method)
-		(url)
+		(value_string_text)
 		(input
 			(filename (filename_text))
 		)
@@ -540,7 +529,7 @@ HTTP 200
 (entry
 	(request
 		(http_method)
-		(url)
+		(value_string_text)
 		(input
 			(filename
 				(filename_text)

@@ -125,6 +125,21 @@
     "fields": {}
   },
   {
+    "type": "oneline_hex",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "hexidigit",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "oneline_string",
     "named": true,
     "fields": {}
@@ -150,11 +165,11 @@
           "named": true
         },
         {
-          "type": "request_param_keyword",
+          "type": "request_section",
           "named": true
         },
         {
-          "type": "url",
+          "type": "value_string_text",
           "named": true
         }
       ]
@@ -164,6 +179,25 @@
     "type": "request_param_keyword",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "request_section",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "key_value",
+          "named": true
+        },
+        {
+          "type": "request_param_keyword",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "response",
@@ -352,6 +386,10 @@
     "named": false
   },
   {
+    "type": "hexidigit",
+    "named": true
+  },
+  {
     "type": "key",
     "named": true
   },
@@ -360,15 +398,11 @@
     "named": true
   },
   {
-    "type": "oneline_hex",
-    "named": true
-  },
-  {
     "type": "status",
     "named": true
   },
   {
-    "type": "url",
+    "type": "value_string_text",
     "named": true
   },
   {

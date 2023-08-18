@@ -41,14 +41,20 @@ module.exports = grammar({
 
 		_request_response: $ => seq($.request, optional($.response)),
 
-		request: $ => seq($.http_method, $._sp, $.url, $._lt, optional($._header), optional($.input)),
+		request: $ => seq($.http_method, $._sp, $._value_string, seq(repeat($._sp), $._lt), optional($._header), repeat($.request_section), optional($.input)),
 
 		http_method: _ => choice(...HTTP_METHODS),
 		_sp: _ => /[ \t]/,
 		_lt: _ => /\n/,
+		_value_string: $ => choice($._value_string_content),
+		_value_string_content: $ => repeat1($.value_string_text),
+		value_string_text: _ => /[^#\n\\]+/,
+		hexidigit: _ => /[0-9A-Fa-f]/,
+
 		url: _ => URL_REGEX,
 
-		_header: $ => repeat1(seq(choice($._lt, $.key_value, $.request_param_keyword), $._lt)),
+		_header: $ => repeat1(seq(optional($._lt), choice($.key_value), $._lt)),
+		request_section: $ => seq($.request_param_keyword, $._lt, repeat($.key_value)),
 
 		request_param_keyword: _ => choice(...REQUEST_PARAM_KEYWORDS),
 		variable: _ => /\{\{\S+\}\}/,
@@ -79,11 +85,12 @@ module.exports = grammar({
 		_base64: $ => seq('base64', ',', $.oneline_base64, ';'),
 		oneline_base64: _ => /[A-Za-z0-9-=+ \n]+/,
 		_hex: $ => seq('hex', ',', $.oneline_hex, ';'),
-		oneline_hex: _ => /[0-9A-Fa-f]+/,
+		oneline_hex: $ => repeat1($.hexidigit),
 		_oneline_file: $ => seq('file', ',', $.filename, ';'),
 		filename: $ => repeat1(choice($.filename_escaped_char, $.filename_text)),
 		filename_escaped_char: _ => /\\(;|#|[ ])/,
 		filename_text: _ => /[^#; \n\\]+/,
+
 
 		json: _ => /\{(\s|.)*\}/,
 		inner_language_hint: _ => /[^```]+/, // The difference is that this one doesn't need to be surrounded by curly braces, it could accept an array for example
