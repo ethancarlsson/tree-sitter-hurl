@@ -1,4 +1,4 @@
-# tree-sitter-rust
+# tree-sitter-hurl
 
 Hurl grammar for tree sitter.
 
